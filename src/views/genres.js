@@ -20,6 +20,5 @@ const cardTemplate = (genre) => html`
 
 export async function genresView(ctx) {
   const genres = await getAllGenres();
-
   ctx.render(genresTemplate(genres));
 }

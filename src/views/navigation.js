@@ -40,7 +40,7 @@ const navigationTemplate = (isAuthenticated) => html`
 `;
 
 
-async function genreTemplate(){html`
+async function genreTemplate() {html`
 <li>
   <a class="dropdown-item" href="/genres/${genre.title}">${genre.title}</a></li>
 </li>
