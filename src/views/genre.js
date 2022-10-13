@@ -1,9 +1,14 @@
-import { getAllMemes } from "../api/memes.js";
+import { getMemesByGenre } from "../api/memes.js";
 import { html } from "../lib.js";
 
-const catalogTemplate = (memes) => html`
+export async function genreView(ctx) {
+  const memes = await getMemesByGenre(ctx.params.title);
+  ctx.render(catalogTemplate(memes, ctx.params.title));
+}
+
+const catalogTemplate = (memes, title) => html`
   <div>
-    <h1>Memes</h1>
+    <h1>${title}</h1>
   </div>
 
   <div>
@@ -22,25 +27,17 @@ const memeCard = (meme) => html` <div
   style="max-width: 800px; margin-bottom: 20px"
 >
   <div class="row g-0">
-    <div class="card-body">
-      <h2>${meme.genre}</h2>
-    </div>
     <div class="col-md-4">
       <img
         src="${meme.imageUrl}"
         class="img-fluid rounded-start"
+        style="padding-top: 30px; width: 700px"
         alt="${meme.genre}"
       />
     </div>
-    <div class="col-md-8" style="text-align: center">
+    <div class="col-md-8" style="text-align: center; padding-top: 30px;">
       <h4>Recent comments</h4>
     </div>
   </div>
   <p>Hello</p>
 </div>`;
-
-export async function homeView(ctx) {
-  const memes = await getAllMemes();
-
-  ctx.render(catalogTemplate(memes));
-}

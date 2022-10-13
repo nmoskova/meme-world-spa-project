@@ -1,17 +1,11 @@
-/* .meme-list {
-    display: inline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-} */
-
 .meme-card {
   display: center;
 }
 
 .center {
   margin: auto;
-  border: 5px solid #232320;
-  display: flex;
+  line-height: 3;
+  display: center;
   height: 400px;
   align-items: justify;
 }
@@ -34,3 +28,22 @@ img {
 .form-padding {
     padding: 25px 50px 75px 50px;
 }
+
+.user-meme-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.genres-list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#errorBox {
+  display: none;
+  text-align: center;
+}
+
+

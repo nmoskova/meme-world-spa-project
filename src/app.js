@@ -10,6 +10,7 @@ import { loginView } from "./views/login.js";
 import { navigationView } from "./views/navigation.js";
 import { profileView } from "./views/profile.js";
 import { registerView } from "./views/register.js";
+import { genreView } from "./views/genre.js";
 import { html } from "./lib.js";
 
 const root = document.getElementById("root");
@@ -18,6 +19,7 @@ page(authMiddleware);
 page(ctxMiddleware);
 page("/", homeView);
 page("/genres", genresView);
+page("/genres/:title", genreView);
 page("/memes/:id", detailsView);
 page("/edit/:id", editView);
 page("/login", loginView);
@@ -47,7 +49,3 @@ function authMiddleware(ctx, next) {
   next();
 }
 
-function onLogout() {
-  logout();
-  page.redirect("/");
-}

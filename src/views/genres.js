@@ -2,20 +2,24 @@ import { getAllGenres } from "../api/genres.js";
 import { html } from "../lib.js";
 
 const genresTemplate = (genres) => html`
-<section id="meme-feed">
-    <h1>All Genres</h1>
-    ${genres.map((x) => cardTemplate(x))} 
-</section>
+  <h1>All Genres</h1>
+  <div class="genres-list">${genres.map((x) => cardTemplate(x))}</div>
 `;
 
 const cardTemplate = (genre) => html`
-<div class="card"> 
-<div class="card-body"> 
-<button type="button" class="btn btn-link">${genre.title}</button>
-  
-      <img src="${genre.imageUrl}" alt="${genre.title}">    
-      </div>
-      </div>
+  <div class="card text-center" style="width: 350px;">
+    <div class="card-body">
+      <h5 class="card-title">${genre.title}</h5>
+      <img
+        class="card-img-top"
+        style="width: 300px; height:300px"
+        img
+        src="${genre.imageUrl}"
+        alt="${genre.title}"
+      />
+      <a href="/genres/${genre.title}"  class="btn btn-primary">See all ${genre.title} memes</a>
+    </div>
+  </div>
 `;
 
 export async function genresView(ctx) {
