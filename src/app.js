@@ -21,6 +21,7 @@ page("/", homeView);
 page("/genres", genresView);
 page("/genres/:title", genreView);
 page("/memes/:id", detailsView);
+page("/details/:id", detailsView)
 page("/edit/:id", editView);
 page("/login", loginView);
 page("/register", registerView);

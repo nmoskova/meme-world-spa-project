@@ -1,47 +1,76 @@
 import { deleteMeme, getMemeById } from "../api/memes.js";
 import { html } from "../lib.js";
 import { getUserData } from "../util.js";
+import { getLikesCount } from "../api/likes.js";
 
-const detailsTemplate = (meme, isOwner, onDelete) => html`
-  <h2 style="padding:20px;" class="card-title">${meme.genre}</h2>
-  <div class="card" style="width: 18rem;">
-    <img src="${meme.imageUrl}" class="card-img-top" alt="${meme.genre}" />
+const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
+  html` <div
+  class="card mb-3 center"
+  style="max-width: 800px;"
+>
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="${meme.imageUrl}"
+        class="img-fluid rounded-start"
+        style="margin-top:15px; margin-left:15px"
+        alt="${meme.genre}"
+      />
+    </div>
+    <div class="col-md-8">
     <div class="card-body">
-      <p class="card-text">${meme.description}</p>
-      <!--  Like Button should not be displayed only for creator of this meme  -->
-      ${!isOwner
-        ? html`<button @click=${onDelete} class="button danger">Like</button>`
-        : ""}
-      <!-- Buttons Edit/Delete should be displayed only for creator of this meme  -->
-      <div>
-        ${isOwner
-          ? html`<a
-                class="btn btn-primary active"
-                href="/edit/${meme._id}"
-                role="button"
-                aria-pressed="true"
-                >Edit</a
-              >
-              <button
-                class="btn btn-secondary active"
-                type="button"
-                @click=${onDelete}
-                aria-pressed="true"
-              >
-                Delete
-              </button>`
-          : ""}
-      </div>
+      <h2>${meme.genre}</h2>
     </div>
   </div>
-`;
+  <p>
+  ${
+    !isOwner
+      ? html`<button @click=${() =>
+          onLike(
+            meme
+          )} style="margin-top: 10px; margin-left:10px" class="btn btn-light">
+          &#10084
+        </button>
+        <span> Likes: ${meme.likes}</span>`
+      : ""
+  }
+          <div
+          ${
+            isOwner
+              ? html`<a
+                    class="btn btn-primary active"
+                    href="/edit/${meme._id}"
+                    role="button"
+                    aria-pressed="true"
+                    >Edit</a
+                  >
+                  <button
+                    class="btn btn-secondary active"
+                    type="button"
+                    @click=${onDelete}
+                    aria-pressed="true"
+                  >
+                    Delete
+                  </button>`
+              : ""
+          }
+>
+</div>
+  </p>
+  <p></p>
+</div>`;
 
 export async function detailsView(ctx) {
   const meme = await getMemeById(ctx.params.id);
 
   const userData = getUserData();
   const isOwner = userData?.id == meme._ownerId;
-  ctx.render(detailsTemplate(meme, isOwner, onDelete));
+  ctx.render(detailsTemplate(meme, isOwner, onDelete, onLike));
+
+  async function onLike(meme) {
+    const likes = await getLikesCount(meme._id);
+    console.log(likes);
+  }
 
   async function onDelete() {
     const choice = confirm("Are you sure you want to delete this meme?");

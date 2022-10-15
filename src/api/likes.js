@@ -1,5 +1,7 @@
 // import { getUserData } from '../util.js'
 // import { getMemeById } from './memes'
+import { get } from "./api.js"
+
 
 // async function showDetails(ctx) {
 //     let userData = getUserData();
@@ -10,12 +12,12 @@
 //     ctx.render(detailsTemplate(book, userData, likesCount, UserLikesCount));
 // }
  
-// export async function getLikesCount(bookId) {
-//     return await get(`http://localhost:3030/data/likes?where=bookId%3D%22${bookId}%22&distinct=_ownerId&count`)
-// }
+export async function getLikesCount(memeId) {
+    return await get(`data/memes/${memeId}?select=likes`)
+}
  
 // export async function getLikesCountFromUser(bookId, userId) {
-//     return await get(`http://localhost:3030/data/likes?where=bookId%3D%22${bookId}%22%20and%20_ownerId%3D%22${userId}%22&count`)
+//     return await get(`http://localhost:3030/data/memes/likes?where=bookId%3D%22${bookId}%22%20and%20_ownerId%3D%22${userId}%22&count`)
 // }
  
 // export async function addNewLike(data) {

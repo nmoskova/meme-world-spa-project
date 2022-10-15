@@ -36,7 +36,7 @@ const memeCard = (meme) => html` <div
       <h4>Recent comments</h4>
     </div>
   </div>
-  <p>Hello</p>
+  <p><a href="/details/${meme._id}" style="margin-left: 10px;" class="btn btn-primary"> Details  </a><p>
 </div>`;
 
 export async function homeView(ctx) {
