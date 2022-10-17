@@ -25,21 +25,20 @@ const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
   <p>
   ${
     !isOwner
-      ? html`<button @click=${() =>
-          onLike(
-            meme
-          )} style="margin-top: 10px; margin-left:10px" class="btn btn-light">
+      ? html`<button @click=${onLike}
+         style="margin-top: 10px; margin-left:10px" class="btn btn-light">
           &#10084
         </button>
         <span> Likes: ${meme.likes}</span>`
       : ""
   }
-          <div
+         
           ${
             isOwner
               ? html`<a
                     class="btn btn-primary active"
                     href="/edit/${meme._id}"
+                    style="margin-top:15px; margin-left:15px"
                     role="button"
                     aria-pressed="true"
                     >Edit</a
@@ -47,6 +46,7 @@ const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
                   <button
                     class="btn btn-secondary active"
                     type="button"
+                    style="margin-top:15px; margin-left:auto"
                     @click=${onDelete}
                     aria-pressed="true"
                   >
@@ -54,7 +54,7 @@ const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
                   </button>`
               : ""
           }
->
+
 </div>
   </p>
   <p></p>
@@ -67,9 +67,9 @@ export async function detailsView(ctx) {
   const isOwner = userData?.id == meme._ownerId;
   ctx.render(detailsTemplate(meme, isOwner, onDelete, onLike));
 
-  async function onLike(meme) {
-    const likes = await getLikesCount(meme._id);
-    console.log(likes);
+  function onLike(meme) {
+    
+    console.log("like it");
   }
 
   async function onDelete() {

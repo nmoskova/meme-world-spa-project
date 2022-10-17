@@ -1,7 +1,8 @@
 import { logout } from "./api/users.js";
 import { page, render } from "./lib.js";
 import { getUserData } from "./util.js";
-import { createView } from "./views/create.js";
+import { createMemeView } from "./views/createMeme.js";
+import { createGenreView } from "./views/createGenre.js";
 import { detailsView } from "./views/details.js";
 import { editView } from "./views/edit.js";
 import { genresView } from "./views/genres.js";
@@ -25,7 +26,8 @@ page("/details/:id", detailsView)
 page("/edit/:id", editView);
 page("/login", loginView);
 page("/register", registerView);
-page("/create", createView);
+page("/create", createMemeView);
+page("/create/genre", createGenreView)
 page("/profile", profileView);
 
 page.start();

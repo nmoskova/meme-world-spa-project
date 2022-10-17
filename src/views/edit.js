@@ -1,20 +1,19 @@
 import { getMemeById, updateMeme } from "../api/memes.js";
+import { getGenreTitles } from "../api/genres.js"
 import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-const editTemplate = (onSubmit, meme) => html`
+const editTemplate = (onSubmit, meme, genres) => html`
   <form @submit=${onSubmit} id="edit-form">
   <div class="form-group form-padding"></div>
     <h1>Edit Meme</h1>
-      <label for="genre">Genre</label>
-      <input
-        class="form-control"
-        id="title"
-        type="text"
-        placeholder=${meme.genre}
-        name="genre"
-        .value=${meme.genre}
-      />
+    <div>
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Genres&nbsp;&nbsp;</label>
+      <select class="custom-select mr-sm-2" id="title" name="genre" >
+        <option selected disabled>Choose genre</option>
+        ${genres.map(g => html`<option value="${g.title}">${g.title}</option>`)}
+      </select>
+      </div>
       <label for="description">Description</label>
       <textarea
       class="form-control"
@@ -41,7 +40,8 @@ const editTemplate = (onSubmit, meme) => html`
 
 export async function editView(ctx) {
   const meme = await getMemeById(ctx.params.id);
-  ctx.render(editTemplate(onSubmit, meme));
+  const genres = await getGenreTitles();
+  ctx.render(editTemplate(onSubmit, meme, genres));
 
   async function onSubmit(event) {
     event.preventDefault();
