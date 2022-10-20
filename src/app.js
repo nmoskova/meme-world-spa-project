@@ -1,18 +1,16 @@
-import { logout } from "./api/users.js";
-import { page, render } from "./lib.js";
+import { html, page, render } from "./lib.js";
 import { getUserData } from "./util.js";
-import { createMemeView } from "./views/createMeme.js";
 import { createGenreView } from "./views/createGenre.js";
+import { createMemeView } from "./views/createMeme.js";
 import { detailsView } from "./views/details.js";
-import { editView } from "./views/edit.js";
+import { editMemeView } from "./views/editMeme.js";
+import { genreView } from "./views/genre.js";
 import { genresView } from "./views/genres.js";
 import { homeView } from "./views/home.js";
 import { loginView } from "./views/login.js";
 import { navigationView } from "./views/navigation.js";
 import { profileView } from "./views/profile.js";
 import { registerView } from "./views/register.js";
-import { genreView } from "./views/genre.js";
-import { html } from "./lib.js";
 
 const root = document.getElementById("root");
 
@@ -23,12 +21,12 @@ page("/genres", genresView);
 page("/genres/:title", genreView);
 page("/memes/:id", detailsView);
 page("/details/:id", detailsView)
-page("/edit/:id", editView);
+page("/edit/:id", editMemeView);
 page("/login", loginView);
 page("/register", registerView);
 page("/create", createMemeView);
 page("/create/genre", createGenreView)
-page("/profile", profileView);
+page("/profile/:id", profileView);
 
 page.start();
 

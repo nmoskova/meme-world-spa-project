@@ -1,9 +1,9 @@
 import { deleteMeme, getMemeById } from "../api/memes.js";
 import { html } from "../lib.js";
 import { getUserData } from "../util.js";
-import { getLikesCount } from "../api/likes.js";
+import { getMemeLikes, likeMeme } from "../api/likes.js";
 
-const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
+const detailsTemplate = (meme, likes, isOwner, onDelete, onLike) =>
   html` <div
   class="card mb-3 center"
   style="max-width: 800px;"
@@ -29,7 +29,7 @@ const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
          style="margin-top: 10px; margin-left:10px" class="btn btn-light">
           &#10084
         </button>
-        <span> Likes: ${meme.likes}</span>`
+        <span> Likes: ${likes.length}</span>`
       : ""
   }
          
@@ -62,14 +62,16 @@ const detailsTemplate = (meme, isOwner, onDelete, onLike) =>
 
 export async function detailsView(ctx) {
   const meme = await getMemeById(ctx.params.id);
+  const likes = await getMemeLikes(meme._id)
 
   const userData = getUserData();
   const isOwner = userData?.id == meme._ownerId;
-  ctx.render(detailsTemplate(meme, isOwner, onDelete, onLike));
+  
+  ctx.render(detailsTemplate(meme, likes, isOwner, onDelete, onLike));
 
-  function onLike(meme) {
-    
-    console.log("like it");
+  async function onLike() {
+    await likeMeme(meme._id);
+    ctx.page.redirect("/memes/" + meme._id);
   }
 
   async function onDelete() {

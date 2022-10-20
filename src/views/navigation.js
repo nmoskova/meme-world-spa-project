@@ -1,6 +1,5 @@
-import { html } from "../lib.js";
 import { logout } from "../api/users.js";
-import { page } from "../lib.js";
+import { html, page } from "../lib.js";
 
 const navigationTemplate = (isAuthenticated) => html`
   <nav class="navbar navbar-expand-lg bg-light">
@@ -61,7 +60,7 @@ function userTemplate(isAuthenticated) {
       <a class="nav-link active" href="/create">Create Meme</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="/profile">My Profile</a>
+      <a class="nav-link active" href="/profile/${isAuthenticated.id}">My Profile</a>
     </li>
     <li class="nav-item ">
       <a class="nav-link active" @click=${onLogout} href="javascript:void(0)"

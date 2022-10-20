@@ -10,49 +10,49 @@ async function request(url, method, data) {
   };
 
   if (data != undefined) {
-      options.headers['Content-Type'] = 'application/json';
-      options.body = JSON.stringify(data);
+    options.headers["Content-Type"] = "application/json";
+    options.body = JSON.stringify(data);
   }
 
   const userData = getUserData();
   if (userData) {
-      options.headers['X-Authorization'] = userData.accessToken;
+    options.headers["X-Authorization"] = userData.accessToken;
   }
 
-    try {
-      const res = await fetch(host + url, options);
+  try {
+    const res = await fetch(host + url, options);
 
-      if (res.ok == false) {
-        if ((res.status == 403)) {
-          clearUserData();
-        }
-        const error = await res.json();
-        throw new Error(error.message);
+    if (res.ok == false) {
+      if (res.status == 403) {
+        clearUserData();
       }
-
-      if (res.status == 204) {
-        return res;
-      } else {
-        return res.json();
-      }
-    } catch (err) {
-      notify(err.message);
-      throw err;
+      const error = await res.json();
+      throw new Error(error.message);
     }
+
+    if (res.status == 204) {
+      return res;
+    } else {
+      return res.json();
+    }
+  } catch (err) {
+    notify(err.message);
+    throw err;
+  }
 }
 
 export async function get(url) {
-    return request(url, 'get');
+  return request(url, "get");
 }
 
 export async function post(url, data) {
-    return request(url, 'post', data);
+  return request(url, "post", data);
 }
 
 export async function put(url, data) {
-  return request(url, 'put', data);
+  return request(url, "put", data);
 }
 
 export async function del(url) {
-    return request(url, 'delete');               
+  return request(url, "delete");
 }

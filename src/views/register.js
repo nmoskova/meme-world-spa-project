@@ -1,10 +1,10 @@
-import { html } from "../lib.js";
 import { register } from "../api/users.js";
+import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-const registerTemplate = (onSubmit) => html`
+const registerTemplate = (onSubmit, uploadFile) => html`
   <form @submit=${onSubmit} id="register-form">
-  <h1>Register</h1>
+    <h1>Register</h1>
     <div style="line-height:2;" class="form-group form-padding">
       <label for="username">Username</label>
       <input
@@ -38,34 +38,27 @@ const registerTemplate = (onSubmit) => html`
         placeholder="Repeat Password"
         name="repeatPass"
       />
-      <fieldset style="padding-top: 15px;" class="form-group">
-        <div class="row">
-          <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
-          <div class="col-sm-10">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gender"
-                id="gridRadios1"
-                value="option1"
-                checked
-              />
-              <label class="form-check-label" for="gridRadios1"> Male </label>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="radio"
-                name="gridRadios"
-                id="gridRadios2"
-                value="option2"
-              />
-              <label class="form-check-label" for="gridRadios2"> Female </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="gender"
+          id="flexRadioDefault1"
+          value="male"
+        />
+        <label class="form-check-label" for="flexRadioDefault1"> male </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="gender"
+          id="flexRadioDefault2"
+          value="female"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2"> female </label>
+      </div>
       <div style="padding-top: 10px; padding-bottom:10px;" class="form-check">
         <input
           type="checkbox"
@@ -73,11 +66,14 @@ const registerTemplate = (onSubmit) => html`
           id="exampleCheck1"
           name="agree-check"
         />
+        <div>
         <label class="form-check-label" for="exampleCheck1"
           >I agree to upload only hilarious memes!</label
         >
+        </div>
+        <label for="image">Profile Image</label>
+        <input @change="${uploadFile}" id="profile-image" type="file" />
       </div>
-      <div></div>
       <button type="submit" class="btn btn-primary">Register</button>
       <div style="padding-top: 30px;">
         <p>Already have an account?&nbsp; <a href="/login">Sign in</a></p>
@@ -87,7 +83,17 @@ const registerTemplate = (onSubmit) => html`
 `;
 
 export function registerView(ctx) {
-  ctx.render(registerTemplate(onSubmit));
+  ctx.render(registerTemplate(onSubmit, uploadFile));
+
+  function uploadFile() {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+      sessionStorage.setItem("image", reader.result);
+    });
+
+    reader.readAsDataURL(this.files[0]);
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -99,15 +105,19 @@ export function registerView(ctx) {
     const repass = formData.get("repeatPass").trim();
     const gender = formData.get("gender");
     const agree = formData.get("agree-check");
+    const image = sessionStorage.getItem("image");
+
+    sessionStorage.removeItem("image");
 
     if (username == "" || email == "" || password == "" || agree == null) {
       return notify("All fields are required");
     }
     if (password != repass) {
-      return notify("Passwords don\'t match");
+      return notify("Passwords don't match");
     }
 
-    await register(username, email, password, gender);
-    ctx.page.redirect("/");
+    await register(username, email, password, gender, image);
+    event.target.reset();
+    ctx.page.redirect("/profile/" + sessionStorage.id);
   }
 }

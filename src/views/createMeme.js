@@ -1,10 +1,9 @@
-import { createMeme } from "../api/memes.js";
 import { getGenreTitles } from "../api/genres.js";
+import { createMeme } from "../api/memes.js";
 import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-
-const createTemplate = (onSubmit, genres) => html`
+const createMemeTemplate = (onSubmit, genres) => html`
   <form id="create-form" @submit=${onSubmit}>
     <h1>Create Meme</h1>
     <div class="form-group form-padding" style="line-height:2;">
@@ -16,8 +15,8 @@ const createTemplate = (onSubmit, genres) => html`
           ${genres.map(
             (g) => html`<option value="${g.title}">${g.title}</option>`
           )}
-        </select> 
-        <a href="/create/genre"  style="margin-top: 10px;">Add new Genre</a>
+        </select>
+        <a href="/create/genre" style="margin-top: 10px;">Add new Genre</a>
       </div>
       <label for="description">Description</label>
       <textarea
@@ -43,7 +42,7 @@ const createTemplate = (onSubmit, genres) => html`
 export async function createMemeView(ctx) {
   const genres = await getGenreTitles();
 
-  ctx.render(createTemplate(onSubmit, genres));
+  ctx.render(createMemeTemplate(onSubmit, genres));
 
   async function onSubmit(event) {
     event.preventDefault();

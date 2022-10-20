@@ -3,7 +3,7 @@ import { getGenreTitles } from "../api/genres.js"
 import { html } from "../lib.js";
 import { notify } from "../notify.js";
 
-const editTemplate = (onSubmit, meme, genres) => html`
+const editMemeTemplate = (onSubmit, meme, genres) => html`
   <form @submit=${onSubmit} id="edit-form">
   <div class="form-group form-padding"></div>
     <h1>Edit Meme</h1>
@@ -38,10 +38,10 @@ const editTemplate = (onSubmit, meme, genres) => html`
   </form>
 `;
 
-export async function editView(ctx) {
+export async function editMemeView(ctx) {
   const meme = await getMemeById(ctx.params.id);
   const genres = await getGenreTitles();
-  ctx.render(editTemplate(onSubmit, meme, genres));
+  ctx.render(editMemeTemplate(onSubmit, meme, genres));
 
   async function onSubmit(event) {
     event.preventDefault();
