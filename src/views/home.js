@@ -15,6 +15,25 @@ const catalogTemplate = (memes) => html`
         />`
       : memes.map((x) => memeCard(x))}
   </div>
+  <nav aria-label="Page navigation example"">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 `;
 
 const memeCard = (meme) => html` <div
@@ -37,7 +56,10 @@ const memeCard = (meme) => html` <div
     </div>
   </div>
   <p><a href="/details/${meme._id}" style="margin-left: 10px;" class="btn btn-primary"> Details  </a><p>
-</div>`;
+</div>
+`
+
+;
 
 export async function homeView(ctx) {
   const memes = await getAllMemes();

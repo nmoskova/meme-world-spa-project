@@ -1,9 +1,17 @@
 import { deleteMeme, getMemeById } from "../api/memes.js";
 import { html } from "../lib.js";
 import { getUserData } from "../util.js";
-import { getMemeLikes, likeMeme } from "../api/likes.js";
+import { getMemeLikes, likeMeme, unlikeMeme, getLike } from "../api/likes.js";
 
-const detailsTemplate = (meme, likes, isOwner, onDelete, onLike) =>
+const detailsTemplate = (
+  meme,
+  likes,
+  isOwner,
+  onDelete,
+  onLike,
+  onUnlike,
+  isLiked
+) =>
   html` <div
   class="card mb-3 center"
   style="max-width: 800px;"
@@ -25,14 +33,22 @@ const detailsTemplate = (meme, likes, isOwner, onDelete, onLike) =>
   <p>
   ${
     !isOwner
-      ? html`<button @click=${onLike}
+      ? isLiked
+        ? html`<button
+              @click=${onUnlike}
+              style="margin-top: 10px; margin-left:10px"
+              class="btn btn-light"
+            >
+              Unlike me &#128148;
+            </button>
+            <span> Likes: ${likes.length}</span>`
+        : html`<button @click=${onLike}
          style="margin-top: 10px; margin-left:10px" class="btn btn-light">
-          &#10084
+          Like me &#10084
         </button>
         <span> Likes: ${likes.length}</span>`
       : ""
-  }
-         
+  } 
           ${
             isOwner
               ? html`<a
@@ -62,15 +78,22 @@ const detailsTemplate = (meme, likes, isOwner, onDelete, onLike) =>
 
 export async function detailsView(ctx) {
   const meme = await getMemeById(ctx.params.id);
-  const likes = await getMemeLikes(meme._id)
-
+  const likes = await getMemeLikes(meme._id);
   const userData = getUserData();
+
   const isOwner = userData?.id == meme._ownerId;
-  
-  ctx.render(detailsTemplate(meme, likes, isOwner, onDelete, onLike));
+  const isLiked = likes.some((x) => x._ownerId == userData.id);
+
+  ctx.render(detailsTemplate(meme, likes, isOwner, onDelete, onLike, onUnlike, isLiked));
 
   async function onLike() {
     await likeMeme(meme._id);
+    ctx.page.redirect("/memes/" + meme._id);
+  }
+
+  async function onUnlike() {
+    let like = await getLike(meme._id, userData.id);
+    await unlikeMeme(like[0]._id);
     ctx.page.redirect("/memes/" + meme._id);
   }
 
