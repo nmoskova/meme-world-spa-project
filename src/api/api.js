@@ -1,5 +1,5 @@
 import { notify } from "../notify.js";
-import { clearUserData, getUserData } from "../util.js";
+import { clearUserData, getUserData } from "../utils.js";
 
 const host = "http://localhost:3030";
 

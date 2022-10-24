@@ -1,5 +1,5 @@
 import { html, page, render } from "./lib.js";
-import { getUserData } from "./util.js";
+import { getUserData } from "./utils.js";
 import { createGenreView } from "./views/createGenre.js";
 import { createMemeView } from "./views/createMeme.js";
 import { detailsView } from "./views/details.js";
@@ -20,21 +20,15 @@ page("/", homeView);
 page("/genres", genresView);
 page("/genres/:title", genreView);
 page("/memes/:id", detailsView);
-page("/details/:id", detailsView)
+page("/details/:id", detailsView);
 page("/edit/:id", editMemeView);
 page("/login", loginView);
 page("/register", registerView);
 page("/create", createMemeView);
-page("/create/genre", createGenreView)
+page("/create/genre", createGenreView);
 page("/profile/:id", profileView);
 
 page.start();
-
-function ctxMiddleware(ctx, next) {
-  ctx.render = renderMain.bind(null, ctx);
-
-  next();
-}
 
 function renderMain(ctx, templateResult) {
   let layout = html`
@@ -50,3 +44,8 @@ function authMiddleware(ctx, next) {
   next();
 }
 
+function ctxMiddleware(ctx, next) {
+  ctx.render = renderMain.bind(null, ctx);
+
+  next();
+}
