@@ -49,6 +49,7 @@ const noMemesImg = html`<img
   alt="no-memes-in-database-img"
 />`;
 
-const userImg = (userImg) => html`<div>
-  <img src="${userImg}" class="img-fluid rounded-start" alt="image" />
+const userImg = (img) => html`
+<div>
+  <img src="${img}" class="img-fluid rounded-start" style="border-radius: 8px; max-width: 300px" alt="image" />
 </div>`;

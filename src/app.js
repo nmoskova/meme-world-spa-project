@@ -19,6 +19,7 @@ page(ctxMiddleware);
 page("/", homeView);
 page("/genres", genresView);
 page("/genres/:title", genreView);
+page("/memes", homeView);
 page("/memes/:id", detailsView);
 page("/details/:id", detailsView);
 page("/edit/:id", editMemeView);

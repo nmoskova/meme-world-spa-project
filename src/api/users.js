@@ -9,7 +9,8 @@ export async function login(email, password) {
     username: result.username,
     email: result.email,
     gender: result.gender,
-    accessToken: result.accessToken,
+    image: result.image,
+    accessToken: result.accessToken, 
   };
 
   setUserData(userData);

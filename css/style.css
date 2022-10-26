@@ -3,22 +3,23 @@
 }
 
 .center {
-  margin: auto;
-  line-height: 3;
-  display: center;
-  height: 400px;
-  align-items: justify;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 50%;
 }
 
 h1 {
   text-align: center;
 }
 
-img {
+.img {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
   max-width: 400px;
+  min-width: 200px;
 }
 
 .profile {
@@ -46,4 +47,25 @@ img {
   text-align: center;
 }
 
+.parent {
+  margin: 2%;
+  width: 50%;
+  height: auto;
+}
 
+.text-container {
+  width: 100%;
+  height: 100%;
+}
+
+.text {
+  overflow: visible;
+   text-overflow: ellipsis;
+   display: -webkit-box;    
+   max-height: 32px;    
+   -webkit-box-orient: vertical;
+}
+
+form {
+  margin-left: 10px
+}

@@ -2,9 +2,9 @@ import { html } from "../lib.js";
 
 export const editMemeTemplate = (onSubmit, meme, genres) => html`
 <form @submit=${onSubmit} id="edit-form">
-<div class="form-group form-padding"></div>
-  <h1>Edit Meme</h1>
-  <div>
+<h1>Edit Meme</h1>
+  <div class="form-group form-padding" style="line-height:2;">
+  </div>
   <label class="mr-sm-2" for="inlineFormCustomSelect">Genres&nbsp;&nbsp;</label>
     <select class="custom-select mr-sm-2" id="title" name="genre" >
       <option selected disabled>Choose genre</option>

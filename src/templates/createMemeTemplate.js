@@ -1,7 +1,7 @@
 import { html } from "../lib.js";
 
 export const createMemeTemplate = (onSubmit, genres) => html`
-  <form id="create-form" @submit=${onSubmit}>
+  <form @submit=${onSubmit} id="create-form">
     <h1>Create Meme</h1>
     <div class="form-group form-padding" style="line-height:2;">
       <div>

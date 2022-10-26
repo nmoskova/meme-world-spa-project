@@ -1447,179 +1447,259 @@
     sessions: {},
   };
   var seedData = {
-    likes:[],
+    comments: [
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "0",
+        comment: "Poor Kate :DD",
+        username: "Mary",
+        _createdOn: 1666686371455,
+        _id: "81026a9e-8cf8-4ece-b91f-38b129019075",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "1",
+        comment: "For sure :DD",
+        username: "Mary",
+        _createdOn: 1666690233250,
+        _id: "296eefef-adfa-4bc5-aaf6-5b62a6684fef",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "2",
+        comment: "Easy Kermit, easy",
+        username: "Mary",
+        _createdOn: 1666690311411,
+        _id: "0d04a4d0-6961-42b0-960d-2aeeda5c80c6",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "3",
+        comment: ":DDDD",
+        username: "Mary",
+        _createdOn: 1666690349177,
+        _id: "a2b2127b-d2f0-4755-916a-6e762532ba35",
+      },
+    ],
+    likes: [
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "0",
+        _createdOn: 1666690961882,
+        _id: "4137d6ce-1f61-490f-b0c7-f85c94081895",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "15",
+        _createdOn: 1666691010800,
+        _id: "0336d45e-a40a-4871-9d69-d35aebc9a1f1",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "1",
+        _createdOn: 1666691031522,
+        _id: "5d2d866a-a7d9-47e1-82b3-d614279713ea",
+      },
+      {
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+        memeId: "3",
+        _createdOn: 1666691055889,
+        _id: "0150958d-7d1e-41f5-a0aa-fe77d1c7e775",
+      },
+    ],
     genres: [
       {
         _ownerId: "Nat",
         title: "Python",
-        imageUrl: "https://c8.alamy.com/comp/2F86G5X/a-japanese-tourist-being-wrapped-with-a-large-python-snake-in-bali-indonesia-2F86G5X.jpg",
+        imageUrl:
+          "https://c8.alamy.com/comp/2F86G5X/a-japanese-tourist-being-wrapped-with-a-large-python-snake-in-bali-indonesia-2F86G5X.jpg",
         _createdOn: 1616162253496,
         _id: "0",
       },
       {
         _ownerId: "Nat",
-        description: '',
+        description: "",
         title: "JavaScript",
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFwhXj4xfIuINapWih6pH1zhGli-EClHEPrA&usqp=CAU",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFwhXj4xfIuINapWih6pH1zhGli-EClHEPrA&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "1",
       },
       {
         _ownerId: "Nat",
         title: "Debugging",
-        imageUrl: "https://pbs.twimg.com/media/DcvXNtiXcAAL2tx?format=jpg&name=900x900",
+        imageUrl:
+          "https://pbs.twimg.com/media/DcvXNtiXcAAL2tx?format=jpg&name=900x900",
         _createdOn: 1616162253496,
         _id: "2",
       },
       {
         _ownerId: "Nat",
         title: "Common",
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-11.31.37-768x745.png?lossy=1&strip=1&webp=1",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-11.31.37-768x745.png?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "3",
       },
       {
         _ownerId: "Nat",
         title: "HTML&CSS",
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-11.31.37-768x745.png?lossy=1&strip=1&webp=1",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-11.31.37-768x745.png?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "4",
       },
       {
         _ownerId: "Nat",
         title: "Junior",
-        imageUrl: "https://thechive.com/wp-content/uploads/2021/12/6-61ae21aeaaaf1__700.jpg?attachment_cache_bust=3901095&quality=85&strip=info&w=400",
+        imageUrl:
+          "https://thechive.com/wp-content/uploads/2021/12/6-61ae21aeaaaf1__700.jpg?attachment_cache_bust=3901095&quality=85&strip=info&w=400",
         _createdOn: 1616162253496,
         _id: "5",
       },
-      
     ],
     memes: [
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Debugging",
-        description: '',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW_FObpghxjtQ9ox85jNBhgYC9_dvrIPhS8A&usqp=CAU",
+        description: "",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW_FObpghxjtQ9ox85jNBhgYC9_dvrIPhS8A&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "0",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Debugging",
-        description: '',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3FgMXnbbN_kOEtEGIMMgSXcKDXEPlHfNsuQ&usqp=CAU",
+        description: "",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3FgMXnbbN_kOEtEGIMMgSXcKDXEPlHfNsuQ&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "1",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Junior",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/Screenshot-2021-06-24-at-15.25.43-768x691.png?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/Screenshot-2021-06-24-at-15.25.43-768x691.png?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "2",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "HTML&CSS",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/3.5-3.jpeg?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/3.5-3.jpeg?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "3",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "JavaScript",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/0_fQTD4DjK71YMUtIS.gif?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/0_fQTD4DjK71YMUtIS.gif?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "4",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Debugging",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/269f3708b5e22a1481c78707bfa14a36-2.gif?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/269f3708b5e22a1481c78707bfa14a36-2.gif?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "5",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Debugging",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/Hello-World-Programming-768x760.jpeg?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/Hello-World-Programming-768x760.jpeg?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "6",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Common",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/83bbcc474d7142438f00bb3db9c031e8.gif?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/83bbcc474d7142438f00bb3db9c031e8.gif?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "7",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "JavaScript",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/tumblr_pqiv8nJLgq1xwpovyo1_1280.jpeg?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2021/06/tumblr_pqiv8nJLgq1xwpovyo1_1280.jpeg?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "8",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Common",
-        description: '',
-        imageUrl: "https://i.chzbgr.com/full/9195089920/h7E59E42E/meme-cartoon-%D0%B0-%D0%B0-%D0%B0-its-first-word-arrays-start-at-1-live-local-late-breaking-baby-found-in-dumpster",
+        description: "",
+        imageUrl:
+          "https://i.chzbgr.com/full/9195089920/h7E59E42E/meme-cartoon-%D0%B0-%D0%B0-%D0%B0-its-first-word-arrays-start-at-1-live-local-late-breaking-baby-found-in-dumpster",
         _createdOn: 1616162253496,
         _id: "9",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Python",
-        description: '',
-        imageUrl: "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81572621_1174743939397851_4791628320447922176_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=_7hbgX2Fwa8AX9F4t5q&_nc_ht=scontent.fsof10-1.fna&oh=00_AT9ly7qqJkkdMwTuchYCKbU1736hHM1oVNky5qCi8OgTmw&oe=635AB7F4",
+        description: "",
+        imageUrl:
+          "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81572621_1174743939397851_4791628320447922176_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=_7hbgX2Fwa8AX9F4t5q&_nc_ht=scontent.fsof10-1.fna&oh=00_AT9ly7qqJkkdMwTuchYCKbU1736hHM1oVNky5qCi8OgTmw&oe=635AB7F4",
         _createdOn: 1616162253496,
         _id: "10",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Python",
-        description: '',
-        imageUrl: "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81474576_1177327882472790_5423421660411723776_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=110474&_nc_ohc=55sPyKGIlGUAX-BbrL8&_nc_ht=scontent.fsof10-1.fna&edm=AN6CN6oEAAAA&oh=00_AT-1zb7rfBiID61fWFOggt8AlzCEJ6AlkDy0uDlcqTrcRg&oe=63599D2E",
+        description: "",
+        imageUrl:
+          "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81474576_1177327882472790_5423421660411723776_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=110474&_nc_ohc=55sPyKGIlGUAX-BbrL8&_nc_ht=scontent.fsof10-1.fna&edm=AN6CN6oEAAAA&oh=00_AT-1zb7rfBiID61fWFOggt8AlzCEJ6AlkDy0uDlcqTrcRg&oe=63599D2E",
         _createdOn: 1616162253496,
         _id: "11",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "JavaScript",
-        description: '',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4v8WCCpuVR_ZRLRvtxM8_ZmIyjXEESWe28jAPsHV9XvjecCXmUvIS8kFRn49RcbstjX4&usqp=CAU",
+        description: "",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4v8WCCpuVR_ZRLRvtxM8_ZmIyjXEESWe28jAPsHV9XvjecCXmUvIS8kFRn49RcbstjX4&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "12",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Junior",
-        description: '',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWM0m6yllgBJjJ1sxnZqX5QUSXuEWfYXV7SA&usqp=CAU",
+        description: "",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWM0m6yllgBJjJ1sxnZqX5QUSXuEWfYXV7SA&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "13",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "HTML&CSS",
-        description: '',
-        imageUrl: "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Coding-Jokes-HTML-Meme-1024x997-3.jpeg?lossy=1&strip=1&webp=1",
+        description: "",
+        imageUrl:
+          "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Coding-Jokes-HTML-Meme-1024x997-3.jpeg?lossy=1&strip=1&webp=1",
         _createdOn: 1616162253496,
         _id: "14",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         genre: "Junior",
-        description: '',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFG-XiKs6p9ENMpuaP1lyR7TCOIL-AQaplYg&usqp=CAU",
+        description: "",
+        imageUrl:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFG-XiKs6p9ENMpuaP1lyR7TCOIL-AQaplYg&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "15",
       },
