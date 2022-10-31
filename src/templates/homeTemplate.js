@@ -20,16 +20,21 @@ export const catalogTemplate = (memes, page, memesCount) => html`
 <nav style="margin-top:10px;" aria-label="Page navigation example"">
   <ul class="pagination justify-content-center">
     <li class="page-item">
-      <a class="page-link" href="/memes?page=${previousPage(
+      <a class="page-link" href="/?page=${previousPage(
         page
       )}" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    ${paginationBuilder(page).map(x=> html`<li class="page-item"><a class="page-link" href="/memes?page=${x}">${x}</a></li>`)}
+    ${paginationBuilder(page, memesCount).map(
+      (x) =>
+        html`<li class="page-item">
+          <a class="page-link" href="/?page=${x}">${x}</a>
+        </li>`
+    )}
     <li class="page-item">
-      <a class="page-link" href="/memes?page=${nextPage(
+      <a class="page-link" href="/?page=${nextPage(
         page,
         memesCount
       )}" aria-label="Next">
@@ -42,8 +47,24 @@ export const catalogTemplate = (memes, page, memesCount) => html`
   </div>
 `;
 
-function paginationBuilder(page) {
-  const firstPage = Math.max(page-1, 1);
+function paginationBuilder(page, memesCount) {
+  let pageSize = 4;
+  let maxLastPage = Math.ceil(memesCount / pageSize);
 
-  return [firstPage, firstPage + 1, firstPage + 2]
-}
+  if (maxLastPage <= 1) {
+    return [1];
+  } else if (maxLastPage == 2) {
+    return [1, 2];
+  } else if (page == 1 ){
+      return [1, 2, 3];
+    } 
+  let lastPage = Math.min(maxLastPage, page+1);
+  let secondPage = page;
+  let firstPage = page - 1;
+
+  return [firstPage, secondPage, lastPage]
+
+
+
+  }
+

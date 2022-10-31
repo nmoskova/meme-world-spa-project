@@ -23,8 +23,8 @@ function uploadFile() {
 const previousPage = (page) => Math.max(1, page - 1);
 
 function nextPage(page, memesCount) {
-  const memesPerPage = 4;
-  return Math.min(Math.ceil(memesCount / memesPerPage), page + 1);
+  let pageSize = 4;
+  return Math.min(Math.ceil(memesCount / pageSize), page + 1);
 };
 
 export {

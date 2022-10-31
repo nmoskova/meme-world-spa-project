@@ -4,16 +4,11 @@ const path = "/data/memes";
 const PAGE_SIZE = 4;
 
 export async function getMemes(page) {
-  const query = [];
-
-  if (page) {
-    query.push(`offset=${(page - 1) * PAGE_SIZE}`);
-    query.push(`pagesize=${PAGE_SIZE}`);
-  }
-
-  const querystring = query.length ? `?${query.join('&')}` : '';
-  
-  return get(path + querystring);
+  let query = ''
+  if (page){
+    query = `?offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`;
+}
+  return get(path + query);
 }
 
 export async function createMeme(meme) {
