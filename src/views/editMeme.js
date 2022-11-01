@@ -8,6 +8,7 @@ export async function editMemeView(ctx) {
     getMemeById(ctx.params.id),
     getGenreTitles(),
   ]);
+  
   ctx.render(editMemeTemplate(onSubmit, meme, genres));
 
   async function onSubmit(event) {
@@ -15,7 +16,7 @@ export async function editMemeView(ctx) {
 
     const formData = new FormData(event.target);
 
-    const genre = formData.get("genre");
+    const genre = formData.get("genre").trim();
     const description = formData.get("description").trim();
     const imageUrl = formData.get("imageUrl").trim();
 
