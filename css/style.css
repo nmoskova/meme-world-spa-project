@@ -1,3 +1,12 @@
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#root {
+  padding-bottom: 2.5rem; /* Footer height */
+}
+
 .meme-card {
   display: center;
 }
@@ -18,16 +27,16 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  max-width: 400px;
+  max-width: 300px;
   min-width: 200px;
 }
 
 .profile {
-    text-align: right;
+  text-align: right;
 }
 
 .form-padding {
-    padding: 25px 50px 75px 50px;
+  padding: 25px 50px 75px 50px;
 }
 
 .user-meme-list {
@@ -45,6 +54,12 @@ h1 {
 #errorBox {
   display: none;
   text-align: center;
+  background-color: green;
+  position: sticky;
+  top: 0px;
+  padding: 10px 0px;
+  background-color: red;
+  color: white;
 }
 
 .parent {
@@ -60,12 +75,21 @@ h1 {
 
 .text {
   overflow: visible;
-   text-overflow: ellipsis;
-   display: -webkit-box;    
-   max-height: 32px;    
-   -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-height: 32px;
+  -webkit-box-orient: vertical;
 }
 
 form {
-  margin-left: 10px
+  margin-left: 10px;
 }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  text-align: center;
+}
+

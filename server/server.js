@@ -1545,7 +1545,7 @@
         _ownerId: "Nat",
         title: "HTML&CSS",
         imageUrl:
-          "https://833250.smushcdn.com/1694534/wp-content/uploads/2022/01/Screenshot-2022-01-11-at-11.31.37-768x745.png?lossy=1&strip=1&webp=1",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Bf8cWv6C8wlJW3Xn29kyn9bFMyWmF9Mz-g&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "4",
       },
@@ -1578,7 +1578,7 @@
         _id: "1",
       },
       {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         genre: "Junior",
         description: "",
         imageUrl:
@@ -1596,7 +1596,7 @@
         _id: "3",
       },
       {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         genre: "JavaScript",
         description: "",
         imageUrl:
@@ -1614,7 +1614,7 @@
         _id: "5",
       },
       {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         genre: "Debugging",
         description: "",
         imageUrl:
@@ -1623,7 +1623,7 @@
         _id: "6",
       },
       {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         genre: "Common",
         description: "",
         imageUrl:
@@ -1632,7 +1632,7 @@
         _id: "7",
       },
       {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
         genre: "JavaScript",
         description: "",
         imageUrl:

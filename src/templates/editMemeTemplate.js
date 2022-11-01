@@ -7,7 +7,7 @@ export const editMemeTemplate = (onSubmit, meme, genres) => html`
   </div>
   <label class="mr-sm-2" for="inlineFormCustomSelect">Genres&nbsp;&nbsp;</label>
     <select class="custom-select mr-sm-2" id="title" name="genre" >
-      <option selected disabled>Choose genre</option>
+      <option value="${meme.genre}" selected>${meme.genre}</option>
       ${genres.map((g) => html`<option value="${g.title}">${g.title}</option>`)}
     </select>
     </div>

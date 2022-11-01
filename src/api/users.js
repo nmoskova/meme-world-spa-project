@@ -18,14 +18,8 @@ export async function login(email, password) {
   return result;
 }
 
-export async function register(username, email, password, gender, image) {
-  const result = await post("/users/register", {
-    username,
-    email,
-    password,
-    gender,
-    image
-  });
+export async function register(data) {
+  const result = await post("/users/register", data);
 
   const userData = {
     id: result._id,

@@ -10,13 +10,13 @@ export function registerView(ctx) {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    const username = formData.get("username").trim();
-    const email = formData.get("email").trim();
-    const password = formData.get("password").trim();
-    const repass = formData.get("repeatPass").trim();
-    const gender = formData.get("gender");
-    const agree = formData.get("agree-check");
-    const image = sessionStorage.getItem("image");
+    let username = formData.get("username").trim();
+    let email = formData.get("email").trim();
+    let password = formData.get("password").trim();
+    let repass = formData.get("repeatPass").trim();
+    let gender = formData.get("gender");
+    let agree = formData.get("agree-check");
+    let image = sessionStorage.getItem("image");
 
     sessionStorage.removeItem("image");
 
@@ -26,8 +26,10 @@ export function registerView(ctx) {
     if (password != repass) {
       return notify("Passwords don't match");
     }
+    
+    if (!image) image = "";
 
-    await register(username, email, password, gender, image);
+    await register({username, email, password, gender, image});
     
     event.target.reset();
     ctx.page.redirect("/profile/" + sessionStorage.id);

@@ -14,14 +14,19 @@ export const detailsTemplate = (
 ) =>
   html` <div class="container">
     <div class="row">
-      <div class="col-sm">
-        <h2 style="margin-left:20px;">${meme.genre}</h2>
+      <div class="col-sm" style="margin-left:10px">
+        <h2 >${meme.genre}</h2>
         <img
           src="${meme.imageUrl}"
           class=" img img-fluid rounded-start"
-          style="margin-top:15px; margin-left:15px"
+          style="margin-top:15px; "
           alt="${meme.genre}"
         />
+        ${
+          meme.description
+            ? html`<p>Description: <b>${meme.description}</b></p>`
+            : ""
+        }
         <p>
           ${
             isOwner
@@ -45,10 +50,7 @@ export const detailsTemplate = (
               : html`</p class="text">No comments for this meme yet. <br />
                   Post the first one :)</p>`
           }
-        </div>
-      </div>
-    </div>
-    <div>
+          <div style="margin-top:50px">
     <form @submit=${onSubmit}>
   <div class="form-group row">
     <label for="username" class="col-sm-2 col-form-label">Username</label>
@@ -67,6 +69,9 @@ export const detailsTemplate = (
     <button type="submit" class="btn btn-primary" style="margin-top:20px;">Post</button>
   </div>
 </form>
+    </div>
+        </div>
+      </div>
     </div>
   </div>`;
 

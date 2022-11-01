@@ -1,13 +1,12 @@
 import { del, get, post, put } from "./api.js";
 
 const path = "/data/memes";
-const PAGE_SIZE = 4;
 
-export async function getMemes(page) {
-  let query = ''
-  if (page){
-    query = `?offset=${(page - 1) * PAGE_SIZE}&pageSize=${PAGE_SIZE}`;
-}
+export async function getMemes(page, pageSize) {
+  let query = "";
+  if (page) {
+    query = `?offset=${(page - 1) * pageSize}&pageSize=${pageSize}`;
+  }
   return get(path + query);
 }
 
@@ -28,13 +27,15 @@ export async function deleteMeme(id) {
 }
 
 export async function getMemesByUser(userId) {
+  let query = encodeURIComponent(`_ownerId="${userId}"`) + "&sortBy=" + encodeURIComponent("_createdOn desc")
   return get(
-    `${path}?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`
+    `${path}?where=${query}`
   );
 }
 
 export async function getMemesByGenre(genre) {
-  return get(`${path}?where=genre%3D%22${genre}%22`);
+  let query = encodeURIComponent(`genre = "${genre}"`);
+  return get(`${path}?where=${query}`);
 }
 
 export async function getMemesCount() {

@@ -22,10 +22,29 @@ function uploadFile() {
 
 const previousPage = (page) => Math.max(1, page - 1);
 
-function nextPage(page, memesCount) {
-  let pageSize = 4;
+function nextPage(page, pageSize, memesCount) {
   return Math.min(Math.ceil(memesCount / pageSize), page + 1);
-};
+}
+
+function paginationBuilder(page, pageSize, memesCount) {
+  let maxLastPage = Math.ceil(memesCount / pageSize);
+
+  if (maxLastPage <= 1) {
+    return [1];
+  } else if (maxLastPage == 2) {
+    return [1, 2];
+  } else if (page <= 1) {
+    return [1, 2, 3];
+  }
+
+  let lastPage = Math.min(maxLastPage, page + 1);
+
+  if (lastPage == maxLastPage) {
+    return [lastPage - 2, lastPage - 1, lastPage];
+  } else {
+    return [lastPage - 2, lastPage - 1, lastPage];
+  }
+}
 
 export {
   getUserData,
@@ -34,4 +53,6 @@ export {
   uploadFile,
   previousPage,
   nextPage,
+  paginationBuilder,
 };
+

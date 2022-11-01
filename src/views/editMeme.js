@@ -4,16 +4,18 @@ import { notify } from "../notify.js";
 import { editMemeTemplate } from "../templates/editMemeTemplate.js";
 
 export async function editMemeView(ctx) {
-  const meme = await getMemeById(ctx.params.id);
-  const genres = await getGenreTitles();
+  const [meme, genres] = await Promise.all([
+    getMemeById(ctx.params.id),
+    getGenreTitles(),
+  ]);
   ctx.render(editMemeTemplate(onSubmit, meme, genres));
 
   async function onSubmit(event) {
     event.preventDefault();
-    
+
     const formData = new FormData(event.target);
 
-    const genre = formData.get("genre").trim();
+    const genre = formData.get("genre");
     const description = formData.get("description").trim();
     const imageUrl = formData.get("imageUrl").trim();
 
