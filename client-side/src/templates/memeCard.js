@@ -2,7 +2,7 @@ import { html } from "../lib.js";
 
 export const memeCard = (meme) => html`
   <div class="card center">
-      <div class="meme-card">
+      <div class="meme-card" style="width:300px; margin:auto;">
         <h2 style="text-align:center;">${meme.genre}</h2>
       </div>
       <div>
@@ -10,7 +10,6 @@ export const memeCard = (meme) => html`
           src="${meme.imageUrl}"
           class="img-fluid rounded-start center"
           alt="${meme.genre}"
-          style="max-width: 300px;"
         />
       </div>
     <p style="text-align: center;">
