@@ -1,4 +1,5 @@
-import { html, page, render } from "./lib.js";
+import page from "./lib.js"
+import { html, render } from "./lib.js";
 import { getUserData } from "./utils.js";
 import { createGenreView } from "./views/createGenre.js";
 import { createMemeView } from "./views/createMeme.js";

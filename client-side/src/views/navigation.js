@@ -1,5 +1,5 @@
 import { logout } from "../api/users.js";
-import { page } from "../lib.js";
+import page from "../lib.js";
 import { navigationTemplate } from "../templates/navigationTemplate.js";
 
 export function navigationView(ctx) {
