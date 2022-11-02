@@ -54,7 +54,7 @@ export const detailsTemplate = (
     <form @submit=${onSubmit}>
   <div class="form-group row">
     <label for="username" class="col-sm-2 col-form-label">Username</label>
-    <div class="col-sm-10">
+    <div class="col-auto">
       <input type="text" readonly class="form-control-plaintext" id="username" name="username" value="${
         userData ? userData.username : "anonymous"
       }">
@@ -62,7 +62,7 @@ export const detailsTemplate = (
   </div>
   <div class="form-group row">
     <label for="comment" class="col-sm-2 col-form-label">Comment</label>
-    <div class="col-sm-10">
+    <div class="col-auto">
       <input type="text" class="form-control"  maxlength="50" id="comment" name="comment" placeholder="Enter your comment here.">
     </div>
   </div>
