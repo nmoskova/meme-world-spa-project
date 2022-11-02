@@ -1,7 +1,8 @@
 import { notify } from "../notify.js";
 import { clearUserData, getUserData } from "../utils.js";
 
-const host = "http://localhost:3030";
+// const host = "http://localhost:3030";
+const host = "https://meme-world-spa.herokuapp.com"
 
 async function request(url, method, data) {
   const options = {
