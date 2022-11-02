@@ -14,12 +14,12 @@ export const detailsTemplate = (
 ) =>
   html` <div class="container">
     <div class="row">
-      <div class="col-sm" style="margin-left:10px">
+      <div class="col-auto" style="margin-left:10px;">
         <h2 >${meme.genre}</h2>
         <img
           src="${meme.imageUrl}"
           class=" img img-fluid rounded-start"
-          style="margin-top:15px; "
+          style="margin-top:15px; min-width: 300px;" 
           alt="${meme.genre}"
         />
         ${
@@ -53,7 +53,7 @@ export const detailsTemplate = (
           <div style="margin-top:50px">
     <form @submit=${onSubmit}>
   <div class="form-group row">
-    <label for="username" class="col-sm-2 col-form-label">Username</label>
+    <label for="username" class="col-auto col-form-label">Username</label>
     <div class="col-auto">
       <input type="text" readonly class="form-control-plaintext" id="username" name="username" value="${
         userData ? userData.username : "anonymous"
@@ -61,7 +61,7 @@ export const detailsTemplate = (
     </div>
   </div>
   <div class="form-group row">
-    <label for="comment" class="col-sm-2 col-form-label">Comment</label>
+    <label for="comment" class="col-auto col-form-label">Comment</label>
     <div class="col-auto">
       <input type="text" class="form-control"  maxlength="50" id="comment" name="comment" placeholder="Enter your comment here.">
     </div>

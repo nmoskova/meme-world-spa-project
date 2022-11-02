@@ -1512,7 +1512,7 @@
         _ownerId: "Nat",
         title: "Python",
         imageUrl:
-          "https://c8.alamy.com/comp/2F86G5X/a-japanese-tourist-being-wrapped-with-a-large-python-snake-in-bali-indonesia-2F86G5X.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_45NQO2n0modl23Im4tO0327duz1zjBHTA&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "0",
       },
@@ -1654,18 +1654,9 @@
         genre: "Python",
         description: "",
         imageUrl:
-          "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81572621_1174743939397851_4791628320447922176_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=730e14&_nc_ohc=_7hbgX2Fwa8AX9F4t5q&_nc_ht=scontent.fsof10-1.fna&oh=00_AT9ly7qqJkkdMwTuchYCKbU1736hHM1oVNky5qCi8OgTmw&oe=635AB7F4",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE_45NQO2n0modl23Im4tO0327duz1zjBHTA&usqp=CAU",
         _createdOn: 1616162253496,
         _id: "10",
-      },
-      {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        genre: "Python",
-        description: "",
-        imageUrl:
-          "https://scontent.fsof10-1.fna.fbcdn.net/v/t1.6435-9/81474576_1177327882472790_5423421660411723776_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=110474&_nc_ohc=55sPyKGIlGUAX-BbrL8&_nc_ht=scontent.fsof10-1.fna&edm=AN6CN6oEAAAA&oh=00_AT-1zb7rfBiID61fWFOggt8AlzCEJ6AlkDy0uDlcqTrcRg&oe=63599D2E",
-        _createdOn: 1616162253496,
-        _id: "11",
       },
       {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
