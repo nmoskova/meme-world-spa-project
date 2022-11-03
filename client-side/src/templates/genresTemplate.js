@@ -6,8 +6,8 @@ export const genresTemplate = (genres) => html`
 `;
 
 const memeCard = (genre) => html`
-  <div class="card text-center" style="width:300px; margin:auto;">
-    <div class="card-body">
+  <div class="card text-center" >
+    <div class="card-body" style="width:300px; margin:auto;">
       <h5 class="card-title">${genre.title}</h5>
       <img
         class="card-img-top"

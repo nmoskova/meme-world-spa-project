@@ -1,8 +1,8 @@
 import { html } from "../lib.js";
 
 export const memeCard = (meme) => html`
-  <div class="card center">
-      <div class="meme-card" style="width:300px; margin:auto;">
+  <div class="card center" style="min-width:300px; margin:auto;">
+      <div class="meme-card" >
         <h2 style="text-align:center;">${meme.genre}</h2>
       </div>
       <div>
