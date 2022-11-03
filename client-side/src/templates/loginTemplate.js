@@ -4,7 +4,7 @@ export const loginTemplate = (onSubmit) => html`
   <form @submit=${onSubmit}>
     <h1>Login</h1>
     <div style="line-height:2;" class="form-group form-padding">
-      <label for="email">Email</label>
+      <label for="email">Email*</label>
       <input
         class="form-control"
         id="email"
@@ -12,7 +12,7 @@ export const loginTemplate = (onSubmit) => html`
         name="email"
         type="email"
       />
-      <label for="password">Password</label>
+      <label for="password">Password*</label>
       <input
         class="form-control"
         id="password"

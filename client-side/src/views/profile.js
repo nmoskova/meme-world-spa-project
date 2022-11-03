@@ -7,9 +7,6 @@ export async function profileView(ctx) {
   const userData = getUserData();
   const memes = await getMemesByUser(userData.id);
   
-  ctx.render(profileTemplate(memes, userData, onDelete));
+  ctx.render(profileTemplate(memes, userData));
 
-  function onDelete() {
-    notify("Ho-ho-ho!I won't let you leave MEME-WORLD");
-  }
 }

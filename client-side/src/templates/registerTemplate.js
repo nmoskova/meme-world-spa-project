@@ -4,7 +4,7 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
   <form @submit=${onSubmit} id="register-form">
     <h1>Register</h1>
     <div style="line-height:2;" class="form-group form-padding">
-      <label for="username">Username</label>
+      <label for="username">Username*</label>
       <input
         class="form-control"
         id="username"
@@ -12,7 +12,7 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
         placeholder="Enter Username"
         name="username"
       />
-      <label for="email">Email</label>
+      <label for="email">Email*</label>
       <input
         class="form-control "
         id="email"
@@ -20,7 +20,7 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
         placeholder="Enter Email"
         name="email"
       />
-      <label for="password">Password</label>
+      <label for="password">Password*</label>
       <input
         class="form-control"
         id="password"
@@ -28,7 +28,7 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
         placeholder="Enter Password"
         name="password"
       />
-      <label for="repeatPass">Repeat Password</label>
+      <label for="repeatPass">Repeat Password*</label>
       <input
         class="form-control"
         id="repeatPass"
@@ -57,6 +57,8 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
         />
         <label class="form-check-label" for="flexRadioDefault2"> female </label>
       </div>
+      <label for="image">Profile Image</label>
+      <input @change="${uploadFile}" id="profile-image" type="file" />
       <div style="padding-top: 10px; padding-bottom:10px;" class="form-check">
         <input
           type="checkbox"
@@ -69,8 +71,6 @@ export const registerTemplate = (onSubmit, uploadFile) => html`
             >I agree to upload only hilarious memes!</label
           >
         </div>
-        <label for="image">Profile Image</label>
-        <input @change="${uploadFile}" id="profile-image" type="file" />
       </div>
       <button type="submit" class="btn btn-primary">Register</button>
       <div style="padding-top: 30px;">

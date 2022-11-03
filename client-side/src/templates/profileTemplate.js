@@ -1,6 +1,6 @@
 import { html } from "../lib.js";
 
-export const profileTemplate = (memes, userData, onDelete) => html`
+export const profileTemplate = (memes, userData) => html`
   <section id="user-profile-page" class="user-profile">
     <article class="user-info">
       ${userData.image ? userImg(userData.image) : ""}
@@ -9,15 +9,6 @@ export const profileTemplate = (memes, userData, onDelete) => html`
         <p>Username: ${userData.username}</p>
         <p>Email: ${userData.email}</p>
         <p>My memes count: ${memes.length}</p>
-        <button
-          class="btn btn-secondary active"
-          type="button"
-          style="margin-top:15px; margin-left:auto"
-          @click=${onDelete}
-          aria-pressed="true"
-        >
-          Delete
-        </button>
       </div>
     </article>
     <h1 style="text-align:center; line-height: 3;">User Memes</h1>

@@ -15,14 +15,14 @@ export const createMemeTemplate = (onSubmit, genres) => html`
         </select>
         <a href="/create/genre" style="margin-top: 10px;">Add new Genre</a>
       </div>
-      <label for="description">Description</label>
+      <label for="description">Description*</label>
       <textarea
         id="description"
         class="form-control"
         placeholder="Enter Description"
         name="description"
       ></textarea>
-      <label for="imageUrl">Meme Image</label>
+      <label for="imageUrl">Meme Image*</label>
       <input
         id="imageUrl"
         class="form-control"

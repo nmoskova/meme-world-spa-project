@@ -27,7 +27,7 @@ export async function deleteMeme(id) {
 }
 
 export async function getMemesByUser(userId) {
-  let query = encodeURIComponent(`_ownerId="${userId}"`) + "&sortBy=" + encodeURIComponent("_createdOn desc")
+  let query = encodeURIComponent(`_ownerId="${userId}"`) + "&sortBy=" + encodeURIComponent("_createdOn")
   return get(
     `${path}?where=${query}`
   );
